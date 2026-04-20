@@ -647,6 +647,214 @@ button:active .active\:bg-accent-light { background-color: var(--terracotta-ligh
     60%  { opacity: 1; transform: scale(1.02) translateY(-2px); }
     100% { opacity: 1; transform: scale(1) translateY(0); }
 }
+
+/* ============================================================
+   LANDING PAGE — Immersive Coffee Shop Welcome
+   ============================================================ */
+.landing-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    padding: 2rem 1.5rem;
+    background: var(--cream);
+    position: relative;
+    overflow: hidden;
+}
+
+.landing-content {
+    text-align: center;
+    max-width: 22rem;
+    position: relative;
+    z-index: 1;
+    animation: cozy-fade-in 0.6s ease-out both;
+}
+
+/* --- Floating beans background --- */
+.coffee-beans-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+@keyframes bean-float {
+    0%   { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+    10%  { opacity: 0.25; }
+    90%  { opacity: 0.2; }
+    100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+}
+.bean {
+    position: absolute;
+    left: var(--x, 50%);
+    bottom: -2rem;
+    font-size: 1rem;
+    animation: bean-float 12s linear var(--delay, 0s) infinite;
+    opacity: 0;
+    filter: blur(0.5px);
+}
+
+/* --- Hero coffee mug --- */
+.landing-cup {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    margin: 0 auto 1.2rem;
+    animation: cozy-fade-in 0.5s ease-out 0.1s both;
+}
+.landing-mug {
+    position: absolute;
+    bottom: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 64px;
+    height: 54px;
+    background: linear-gradient(180deg, #fff 0%, var(--linen) 100%);
+    border: 2.5px solid var(--espresso-light);
+    border-radius: 4px 4px 18px 18px;
+    overflow: hidden;
+}
+.landing-mug-liquid {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 42px;
+    background: linear-gradient(180deg, var(--coffee-light), var(--coffee-brown));
+    border-radius: 0 0 15px 15px;
+}
+/* Heart latte art */
+.landing-mug-heart {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-2deg);
+    width: 16px;
+    height: 14px;
+    z-index: 2;
+}
+.landing-mug-heart::before,
+.landing-mug-heart::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--latte-cream);
+}
+.landing-mug-heart::before { left: 0; }
+.landing-mug-heart::after  { left: 6px; }
+.landing-mug-handle {
+    position: absolute;
+    bottom: 16px;
+    right: 10px;
+    width: 16px;
+    height: 22px;
+    border: 2.5px solid var(--espresso-light);
+    border-left: none;
+    border-radius: 0 10px 10px 0;
+}
+
+/* Landing steam */
+@keyframes landing-steam {
+    0%   { opacity: 0; transform: translateY(0) scaleX(1); }
+    25%  { opacity: 0.5; }
+    75%  { opacity: 0.25; transform: translateY(-18px) scaleX(1.4); }
+    100% { opacity: 0; transform: translateY(-28px) scaleX(0.7); }
+}
+.landing-steam {
+    position: absolute;
+    top: 2px;
+    left: 46%;
+    width: 6px;
+    height: 12px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 50%;
+    filter: blur(2px);
+    animation: landing-steam 2.2s ease-out infinite;
+}
+
+/* --- Title --- */
+.landing-title {
+    font-size: 3rem;
+    line-height: 1;
+    color: var(--espresso);
+    margin-bottom: 0.25rem;
+    animation: cozy-fade-in 0.5s ease-out 0.15s both;
+}
+.landing-subtitle {
+    font-size: 1rem;
+    color: var(--espresso-light);
+    font-style: italic;
+    margin-bottom: 2rem;
+    animation: cozy-fade-in 0.5s ease-out 0.25s both;
+}
+
+/* --- Steps --- */
+.landing-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-bottom: 2rem;
+}
+@keyframes step-slide {
+    from { opacity: 0; transform: translateX(-12px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+.landing-step {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    background: var(--paper);
+    border: 1.5px solid var(--cork);
+    border-radius: 0.6rem;
+    padding: 0.65rem 1rem;
+    font-size: 0.875rem;
+    color: var(--espresso-mid);
+    box-shadow: 1px 2px 6px var(--paper-shadow);
+    animation: step-slide 0.4s ease-out both;
+    text-align: left;
+}
+.landing-step-icon {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+/* --- CTA Button --- */
+.landing-cta {
+    display: block;
+    width: 100%;
+    padding: 1rem 2rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--paper);
+    background: linear-gradient(135deg, var(--terracotta), var(--terracotta-light));
+    border: none;
+    border-radius: 0.7rem;
+    box-shadow: 0 4px 14px rgba(199, 91, 57, 0.3);
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    animation: cozy-fade-in 0.5s ease-out 0.8s both;
+}
+.landing-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(199, 91, 57, 0.4);
+}
+.landing-cta:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(199, 91, 57, 0.2);
+}
+
+/* --- Footer text --- */
+.landing-footer {
+    margin-top: 1.2rem;
+    font-size: 0.75rem;
+    color: var(--espresso-light);
+    font-style: italic;
+    opacity: 0.7;
+    animation: cozy-fade-in 0.5s ease-out 1s both;
+}
 html,
 body,
 #app {
