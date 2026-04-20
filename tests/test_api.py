@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import pytest
 from fastapi.testclient import TestClient
 
@@ -68,3 +70,14 @@ class TestDismissModal:
         response = client.post("/dismiss-modal")
         assert response.status_code == 200
         assert "FREE SPACE" in response.text
+
+
+class TestTemplateStructure:
+    def test_start_screen_has_no_coffee_beans_background_section(self):
+        template = Path("app/templates/components/start_screen.html").read_text()
+        assert "coffee-beans-bg" not in template
+
+    def test_bingo_modal_uses_single_steam_and_simpler_latte_art(self):
+        template = Path("app/templates/components/bingo_modal.html").read_text()
+        assert template.count('class="steam"') == 1
+        assert template.count('class="latte-leaf"') == 4
