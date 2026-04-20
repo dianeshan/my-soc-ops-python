@@ -3,32 +3,31 @@ from typing import Final
 FREE_SPACE: Final = "FREE SPACE"
 
 QUESTIONS: Final[list[str]] = [
-    # Easy but weird
-    "has eaten cereal for dinner this week",
-    "has named a plant or inanimate object",
-    "owns more than 3 pairs of novelty socks",
-    "has fallen asleep in a weird public place",
-    "has a recurring dream they remember",
-    "has cried at a commercial",
-    "has a strong opinion about a condiment",
-    "has accidentally liked an old post while stalking",
-    # Unhinged confessions
-    "has a conspiracy theory they half-believe",
-    "has pretended not to see someone they know",
-    "has eaten something off the floor (5-second rule!)",
-    "has a fake name they give at coffee shops",
-    "has replied 'haha' to something that wasn't funny",
-    "has googled themselves",
-    "has an embarrassing alarm ringtone right now",
-    "has worn the same outfit two days in a row (on purpose)",
-    # Bold chaos
-    "unlock your phone and show your wallpaper NOW",
-    "read aloud the last text you sent",
-    "do your best impression of your boss",
-    "let the group rename your Wi-Fi network",
-    # Wildcards — pure mayhem
-    "challenge someone to a thumb war RIGHT NOW",
-    "say the alphabet backwards as fast as you can",
-    "share the oldest screenshot on your phone",
-    "make up a theme song for the person next to you",
+    # Coding habits
+    "I have pushed directly to main and lived to tell the tale",
+    "I renamed a variable 12 times instead of writing the function",
+    "I debug by adding print() and calling it observability",
+    "I have started coding to fix one bug and opened seven tabs by accident",
+    "I have said 'one last commit' after midnight and meant none of it",
+    "I have copied my own Stack Overflow answer from 2021",
+    "I have left TODO: fix later and never met later",
+    "I have used AI autocomplete and then stared at the code like it betrayed me",
+    # IDE preferences
+    "my IDE theme is so specific that I can spot my screen from across the room",
+    "I have switched IDEs for a week and crawled back to my old one",
+    "I have over 20 tabs open and claim this is a system",
+    "my extension list is longer than my weekend plans",
+    "I have a keyboard shortcut muscle memory that fails when anyone is watching",
+    "I format on save because chaos should at least be pretty",
+    "I have argued about tabs vs spaces with alarming passion",
+    "I have spent longer tweaking my terminal prompt than writing actual code",
+    # Developer culture
+    "I have heard 'works on my machine' and felt both fear and pride",
+    "I have turned camera off during standup to eat like a raccoon",
+    "I have reacted with 🚀 on a deploy I barely understood",
+    "I have called a migration 'small' and immediately regretted it",
+    "I have celebrated closing one ticket by opening three accidental bugs",
+    "I have silently judged a commit message and then written 'misc fixes' myself",
+    "I have been in a meeting that should have been a Markdown file",
+    "I have started a side project to avoid finishing the current side project",
 ]
