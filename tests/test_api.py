@@ -1,5 +1,6 @@
 import pytest
 from fastapi.testclient import TestClient
+from pathlib import Path
 
 from app.main import app
 
@@ -19,6 +20,12 @@ class TestHomePage:
         assert "Soc Ops" in response.text
         assert "Start Game" in response.text
         assert "How to play" in response.text
+        assert "landing-page" in response.text
+
+        css = Path("app/static/css/app.css").read_text()
+        assert "--cream:        #1a1210;" in css
+        assert "--paper:        #2e2420;" in css
+        assert "--overlay:      rgba(10, 8, 6, 0.75);" in css
 
     def test_home_sets_session_cookie(self, client: TestClient):
         response = client.get("/")
