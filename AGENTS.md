@@ -11,7 +11,7 @@
 
 ## Conventions
 
-- Use `uv`, never `pip` | Ruff (E, F, I, N, W), line-length 88
+- Use `uv`, never `pip` | Ruff (E, F, I, N, W, ANN, RUF100), line-length 88
 - Templates: Jinja2 + HTMX (`hx-post`, `hx-target`, `hx-swap`)
 - CSS utilities in `app/static/css/app.css` — see [full list](.github/instructions/css-utilities.instructions.md)
 - All JS/CSS vendored in `app/static/`, no external CDN
