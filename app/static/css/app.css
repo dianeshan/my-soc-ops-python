@@ -651,6 +651,7 @@ button:active .active\:bg-accent-light { background-color: var(--terracotta-ligh
     100% { opacity: 1; transform: scale(1) translateY(0); }
 }
 
+/* --- Landing Page Background --- */
 .landing-page {
     background-color: var(--cream);
     background-image:
