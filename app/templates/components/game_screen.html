@@ -1,35 +1,59 @@
 <div id="game-container">
 <div class="flex flex-col min-h-full bg-gray-50">
-    <!-- Header -->
-    <header class="flex items-center justify-between p-3 bg-white border-b border-gray-200">
+    <!-- Cozy Header -->
+    <header class="flex items-center justify-between p-3 cozy-header">
         <button
-            hx-post="/reset"
-            hx-target="#game-container"
-            hx-swap="outerHTML"
-            class="text-gray-500 text-sm px-3 py-1.5 rounded active:bg-gray-100">
+            id="back-btn"
+            class="btn-back text-sm px-3 py-1.5"
+            onclick="triggerSpill()">
             ← Back
         </button>
-        <h1 class="font-bold text-gray-900">Soc Ops</h1>
+        <h1 class="font-bold text-gray-900 cozy-heading text-lg">Soc Ops</h1>
         <div class="w-16"></div>
     </header>
 
     <!-- Instructions -->
-    <p class="text-center text-gray-500 text-sm py-2 px-4">
+    <p class="text-center text-gray-500 text-sm py-2 px-4" style="font-style: italic;">
         Tap a square when you find someone who matches it.
     </p>
 
     <!-- Bingo indicator -->
     {% if session.has_bingo %}
-    <div class="bg-amber-100 text-amber-800 text-center py-2 font-semibold text-sm">
-        🎉 BINGO! You got a line!
+    <div class="bingo-banner text-center py-2 font-semibold text-lg">
+        ☕ BINGO! You got a line!
     </div>
     {% endif %}
 
     <!-- Board -->
     <div class="flex-1 flex items-center justify-center p-3">
-        {% include "components/bingo_board.html" %}
+        <div class="bg-cork w-full max-w-md mx-auto">
+            {% include "components/bingo_board.html" %}
+        </div>
     </div>
 </div>
+
+<!-- Spill overlay (hidden, injected by JS) -->
+<div id="spill-overlay" style="display:none;"></div>
+
+<script>
+function triggerSpill() {
+    var overlay = document.getElementById('spill-overlay');
+    overlay.style.display = 'block';
+    overlay.innerHTML = '<div class="spill-scene">'
+        + '<div class="spill-cup-wrapper">'
+        + '<div class="coffee-cup"><div class="latte-art"><div class="latte-leaf"></div><div class="latte-leaf"></div></div></div>'
+        + '<div class="coffee-handle"></div>'
+        + '<div class="coffee-saucer"></div>'
+        + '<div class="spill-liquid"></div>'
+        + '<div class="spill-drop"></div><div class="spill-drop"></div><div class="spill-drop"></div>'
+        + '</div>'
+        + '<div class="spill-text">Oops!</div>'
+        + '</div>';
+    setTimeout(function() {
+        htmx.ajax('POST', '/reset', {target: '#game-container', swap: 'outerHTML'});
+    }, 1400);
+}
+</script>
 
 {% if session.show_bingo_modal %}
     {% include "components/bingo_modal.html" %}
