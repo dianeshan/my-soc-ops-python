@@ -1,6 +1,7 @@
+from pathlib import Path
+
 import pytest
 from fastapi.testclient import TestClient
-from pathlib import Path
 
 from app.main import app
 
