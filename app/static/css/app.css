@@ -161,7 +161,6 @@ button:disabled {
 /* Handwritten heading style */
 .cozy-heading {
     font-family: 'Gaegu', cursive;
-    font-weight: 400;
     letter-spacing: 0.04em;
 }
 
@@ -607,7 +606,7 @@ button:active .active\:bg-accent-light { background-color: var(--terracotta-ligh
     border: 1px solid var(--cork);
     border-radius: 1rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    animation: modal-pop 0.2s ease-out both;
+    animation: modal-pop 0.25s ease-out both;
 }
 @keyframes modal-pop {
     from { opacity: 0; transform: scale(0.97); }

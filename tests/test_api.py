@@ -1,3 +1,4 @@
+import re
 from pathlib import Path
 
 import pytest
@@ -79,5 +80,22 @@ class TestTemplateStructure:
 
     def test_bingo_modal_uses_single_steam_and_simpler_latte_art(self):
         template = Path("app/templates/components/bingo_modal.html").read_text()
-        assert template.count('class="steam"') == 1
-        assert template.count('class="latte-leaf"') == 4
+        coffee_scene = re.search(
+            (
+                r'<div class="coffee-scene">(.*?)'
+                r'<h2 class="text-3xl font-bold cozy-heading mb-2"'
+            ),
+            template,
+            flags=re.DOTALL,
+        ).group(1)
+        latte_art = re.search(
+            (
+                r'<div class="latte-art">(.*?)'
+                r"</div>\s*</div>\s*<div class=\"coffee-handle\"></div>"
+            ),
+            template,
+            flags=re.DOTALL,
+        ).group(1)
+
+        assert coffee_scene.count('class="steam"') == 1
+        assert latte_art.count('class="latte-leaf"') == 4
