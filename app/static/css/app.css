@@ -59,7 +59,7 @@ html, body, #app {
 }
 
 body {
-    font-family: 'Nunito', Georgia, serif;
+    font-family: 'Nunito', 'Segoe UI', sans-serif;
     -webkit-tap-highlight-color: transparent;
     color: var(--espresso);
     background-color: var(--cream);
@@ -694,11 +694,6 @@ body,
 #app {
     height: 100%;
     margin: 0;
-}
-
-body {
-    font-family: 'Nunito', Georgia, serif;
-    -webkit-tap-highlight-color: transparent;
 }
 
 /* Tailwind-like utility classes */
