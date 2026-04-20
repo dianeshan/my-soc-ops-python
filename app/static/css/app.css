@@ -45,6 +45,9 @@
     --paper:        #2e2420;
     --paper-shadow: rgba(212, 168, 67, 0.12);
     --overlay:      rgba(10, 8, 6, 0.75);
+    --linen-texture-line: rgba(0, 0, 0, 0.18);
+    --landing-glow-mustard: rgba(245, 200, 66, 0.14);
+    --landing-glow-terracotta: rgba(224, 122, 90, 0.12);
     --coffee-brown: #6f4e37;
     --coffee-light: #a67c52;
     --latte-cream:  #f5e6d3;
@@ -69,15 +72,15 @@ body {
             0deg,
             transparent,
             transparent 3px,
-            rgba(0, 0, 0, 0.18) 3px,
-            rgba(0, 0, 0, 0.18) 4px
+            var(--linen-texture-line) 3px,
+            var(--linen-texture-line) 4px
         ),
         repeating-linear-gradient(
             90deg,
             transparent,
             transparent 3px,
-            rgba(0, 0, 0, 0.18) 3px,
-            rgba(0, 0, 0, 0.18) 4px
+            var(--linen-texture-line) 3px,
+            var(--linen-texture-line) 4px
         );
 }
 
@@ -651,6 +654,6 @@ button:active .active\:bg-accent-light { background-color: var(--terracotta-ligh
 .landing-page {
     background-color: var(--cream);
     background-image:
-        radial-gradient(circle at 12% 10%, rgba(245, 200, 66, 0.14), transparent 34%),
-        radial-gradient(circle at 88% 18%, rgba(224, 122, 90, 0.12), transparent 28%);
+        radial-gradient(circle at 12% 10%, var(--landing-glow-mustard), transparent 34%),
+        radial-gradient(circle at 88% 18%, var(--landing-glow-terracotta), transparent 28%);
 }
